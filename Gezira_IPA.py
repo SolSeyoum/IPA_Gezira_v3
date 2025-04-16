@@ -2,23 +2,13 @@
 # Import libraries
 import streamlit as st
 import pandas as pd
-# import altair as alt
-# import plotly.express as px
-# import plotly.graph_objects as go
-# import json
 from shapely.geometry import Point
 import geopandas as gpd
 
-# import folium
 from streamlit_folium import st_folium
-# from branca.colormap import LinearColormap
-# from PIL import Image
+
 #######################
 from util import common2 as cm
-# import common
-# from common import set_page_container_style
-
-
 
 cm.set_page_container_style(
         max_width = 1100, max_width_100_percent = True,
