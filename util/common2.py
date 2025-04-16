@@ -29,8 +29,8 @@ import dask
 
 #######################
 # dfm.columns = [x.replace('_', ' ') for x in dfm.columns]
-logo_wide = r'data\logo_wide.png'
-logo_small = r'data\logo_small.png'
+logo_wide = r'data/logo_wide.png'
+logo_small = r'data/logo_small.png'
 
 IPA_description = {
     "beneficial fraction": ":blue[Beneficial fraction (BF)] is the ratio of the water that is consumed as transpiration\
@@ -88,7 +88,7 @@ COLOR = 'black'
 
 def set_page_container_style(
         max_width: int = 1100, max_width_100_percent: bool = False,
-        padding_top: int = 1, padding_right: int = 0, padding_left: int = 0, padding_bottom: int = 10,
+        padding_top: int = 1, padding_right: int = 1, padding_left: int = 1, padding_bottom: int = 10,
         color: str = COLOR, background_color: str = BACKGROUND_COLOR,
     ):
         # Page configuration
@@ -111,6 +111,12 @@ def set_page_container_style(
             }
             </style>""", unsafe_allow_html=True)
 
+        hide_github_icon = """
+            <style>
+                .css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob, .styles_viewerBadge__1yB5_, .viewerBadge_link__1S137, .viewerBadge_text__1JaDK{ display: none; } #MainMenu{ visibility: hidden; } footer { visibility: hidden; } header { visibility: hidden; }
+            </style>
+        """
+        st.markdown(hide_github_icon, unsafe_allow_html=True)
         #######################
         
 # Load data
