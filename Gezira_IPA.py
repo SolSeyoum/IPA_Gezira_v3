@@ -157,7 +157,7 @@ with col[0]:
         st.markdown("<div style='margin-top: 12px;'>", unsafe_allow_html=True)
         if st.session_state.selected_division is not None:
             if st.button("🔄 Reset Map"):
-                st.session_state.selected_block = None
+                st.session_state.selected_section = None
                 reset_map()
    
     map_data = st_folium(choropleth,  height=450, use_container_width=True)
