@@ -25,7 +25,6 @@ import rasterio
 import base64
 import matplotlib.colors as mcolors
 import io
-import dask
 
 #######################
 # dfm.columns = [x.replace('_', ' ') for x in dfm.columns]
