@@ -122,14 +122,14 @@ def set_page_container_style(
 @st.cache_data(ttl=300)
 def read_df_and_geo(selected_crop):
     dfm = pd.read_csv(fr'data/Gezira_IPA_statistic_{selected_crop}.csv') 
-    with open(r'data\Gezira_IR.json') as response:
+    with open(r'data/Gezira_IR.json') as response:
         geo = json.load(response)
 
     return dfm, geo
 
 @st.cache_data(ttl=300)
 def read_crop_area_df():
-    df = pd.read_csv(r'data\crop_type_precent.csv') 
+    df = pd.read_csv(r'data/crop_type_precent.csv') 
     return df
 
 def indicator_title(indicator, stat_dict):
