@@ -819,38 +819,13 @@ def plotly_pie_chart(dfca, name, year):
         var_name='landuse_type',
         value_name='percentage'
     )
-
     # Clean up the landuse_type column for better labels
     df['landuse_type'] = df['landuse_type'].str.replace('_pct', '')
 
-    # Create pie chart
-    fig = px.pie(
-        df,
-        names='landuse_type',
-        values='percentage',
-        # title=f'Area covered by each landuse class for {name} - {year}',
-        hole=0.3,
-        # color_discrete_sequence=px.colors.qualitative.Set3  
-    )
+   fig = px.pie(df, values='percentage', names='landuse_type' )
+    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.update_layout(showlegend=False)
 
-    # Update layout to use a 2-column legend
-    fig.update_layout(
-        legend=dict(
-            orientation="h",
-            # yanchor="top",
-            y=0.98,
-            xanchor="center",
-            x=0.25,
-            title=None,
-            font=dict(size=12)
-        ),
-        
-        margin=dict(l=0, r=0, t=20, b=0),
-        # height=300,
-        # width=500
-    )
-    # Hack: Reduce legend height by wrapping long labels with line breaks
-    fig.for_each_trace(lambda t: t.update(labels=[label.replace(' ', '<br>') for label in df['landuse_type']]))
     title = f'Area covered by each landuse class for {name} - {year}'
     
     return fig, title
