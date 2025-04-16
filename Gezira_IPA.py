@@ -1,14 +1,12 @@
 #######################
-# Import libraries
 import streamlit as st
 import pandas as pd
 from shapely.geometry import Point
 import geopandas as gpd
-
 from streamlit_folium import st_folium
-
 #######################
 from util import common2 as cm
+
 
 cm.set_page_container_style(
         max_width = 1100, max_width_100_percent = True,
@@ -149,23 +147,19 @@ with col[0]:
     # st.markdown('#####        Indicator Map')
     # st.markdown("<h4 style='text-align: center; color: white;'>Indicator Map</h4>", unsafe_allow_html=True)
 
-    left, right = st.columns([0.7, 0.3])
+    left, right = st.columns([0.9, 0.1])
     # left, right = st.columns((6, 2), gap='medium')
-    left, right = st.columns([0.7, 0.3])
-    # left, right = st.columns((6, 2), gap='medium')
-    with left:
-        st.markdown("### Indicator Map")
+    left.subheader("Indicator Map")
 
     with right:
-        # st.markdown("<br><br>", unsafe_allow_html=True) 
-        st.markdown("<div style='margin-top: 12px;'>", unsafe_allow_html=True)
-        if st.session_state.selected_polygon is not None:
+        st.markdown("<br><br>", unsafe_allow_html=True) 
+        if st.session_state.selected_division is not None:
             if st.button("🔄 Reset Map"):
-                st.session_state.selected_block = None
+                st.session_state.selected_section = None
                 reset_map()
-                    
+    with left:
         map_data = st_folium(choropleth,  height=450, use_container_width=True)
-        
+    
         # st.write(map_data)
         st.write("")  
         st.markdown(title, unsafe_allow_html=True)  
