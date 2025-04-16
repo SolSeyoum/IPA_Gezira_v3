@@ -147,36 +147,37 @@ with col[0]:
     # st.markdown('#####        Indicator Map')
     # st.markdown("<h4 style='text-align: center; color: white;'>Indicator Map</h4>", unsafe_allow_html=True)
 
-    left, right = st.columns([0.9, 0.1])
+    left, right = st.columns([0.7, 0.3])
     # left, right = st.columns((6, 2), gap='medium')
-    left.subheader("Indicator Map")
+    with left:
+        st.markdown("### Indicator Map")
 
     with right:
-        st.markdown("<br><br>", unsafe_allow_html=True) 
-        if st.session_state.selected_division is not None:
+        # st.markdown("<br><br>", unsafe_allow_html=True) 
+        st.markdown("<div style='margin-top: 12px;'>", unsafe_allow_html=True)
+        if st.session_state.selected_polygon is not None:
             if st.button("🔄 Reset Map"):
-                st.session_state.selected_section = None
+                st.session_state.selected_block = None
                 reset_map()
-    with left:
-        map_data = st_folium(choropleth,  height=450, use_container_width=True)
+   
+    map_data = st_folium(choropleth,  height=450, use_container_width=True)
+
+    # st.write(map_data)
+    st.write("")  
+    st.markdown(title, unsafe_allow_html=True)  
+    st.altair_chart(line_chart, use_container_width=True)
     
-        # st.write(map_data)
-        st.write("")  
-        st.markdown(title, unsafe_allow_html=True)  
-        st.altair_chart(line_chart, use_container_width=True)
-        
-        if map_data and "last_clicked" in map_data and map_data["last_clicked"] != None :
-            # Find the clicked polygon
-            clicked_point = Point(map_data["last_clicked"]["lng"], map_data["last_clicked"]["lat"])
-            matching_polygon = gdf[gdf.contains(clicked_point)]
-            if not matching_polygon.empty:
-                clicked_division = matching_polygon.iloc[0]['division']
-                clicked_section = matching_polygon.iloc[0]['section']
-                if (st.session_state.selected_division != clicked_division) or (st.session_state.selected_section != clicked_section):
-                        st.session_state.selected_division = clicked_division
-                        st.session_state.selected_section = clicked_section
-                        st.rerun()
-           
+    if map_data and "last_clicked" in map_data and map_data["last_clicked"] != None :
+        # Find the clicked polygon
+        clicked_point = Point(map_data["last_clicked"]["lng"], map_data["last_clicked"]["lat"])
+        matching_polygon = gdf[gdf.contains(clicked_point)]
+        if not matching_polygon.empty:
+            clicked_division = matching_polygon.iloc[0]['division']
+            clicked_section = matching_polygon.iloc[0]['section']
+            if (st.session_state.selected_division != clicked_division) or (st.session_state.selected_section != clicked_section):
+                    st.session_state.selected_division = clicked_division
+                    st.session_state.selected_section = clicked_section
+                    st.rerun()           
     
 
 with col[1]:
