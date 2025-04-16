@@ -155,7 +155,7 @@ with col[0]:
     with right:
         # st.markdown("<br><br>", unsafe_allow_html=True) 
         st.markdown("<div style='margin-top: 12px;'>", unsafe_allow_html=True)
-        if st.session_state.selected_polygon is not None:
+        if st.session_state.selected_division is not None:
             if st.button("🔄 Reset Map"):
                 st.session_state.selected_block = None
                 reset_map()
