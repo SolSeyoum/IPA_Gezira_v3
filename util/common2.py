@@ -773,6 +773,11 @@ def plotly_pie_chart(dfca, name, year):
     df['landuse_type'] = df['landuse_type'].str.replace('_pct', '')
 
     fig = px.pie(df, values='percentage', names='landuse_type')
+    # Extract default marker colors from the figure and apply to hoverlabel
+    for i, d in enumerate(fig.data):
+        slice_color = d.marker.colors[i]
+        d.hoverlabel = dict(bgcolor=slice_color, font=dict(color='white'))
+    
     fig.update_traces(hole=.3, textposition='inside', textinfo='percent+label')
     fig.update_layout(showlegend=False)
 
