@@ -823,7 +823,7 @@ def plotly_pie_chart(dfca, name, year):
     df['landuse_type'] = df['landuse_type'].str.replace('_pct', '')
 
    fig = px.pie(df, values='percentage', names='landuse_type' )
-    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.update_traces(hole=.3, textposition='inside', textinfo='percent+label')
     fig.update_layout(showlegend=False)
 
     title = f'Area covered by each landuse class for {name} - {year}'
