@@ -760,57 +760,6 @@ def filter_points_within_polygon(points, polygon):
 
     return [(lambda point: (point.y, point.x))(point) for point in points_in]
 
-# def crop_area_piechart(df):
-#     ''' pie chart of the percentatge of area covered by the cropmap landuse classes'''
-#     df_long = df.melt(
-#         value_vars=[col for col in df.columns if '_pct' in col],
-#         var_name='landuse_type',
-#         value_name='percentage'
-#     )
-
-#     # Clean up the landuse_type column for better labels
-#     df_long['landuse_type'] = df_long['landuse_type'].str.replace('_pct', '')
-#     base = alt.Chart(df_long).encode(
-#             theta=alt.Theta("percentage", stack=True),
-#             color=alt.Color("landuse_type:N",
-#                             legend=alt.Legend(title=" ",
-#                                             orient="none",
-#                                             direction="horizontal",legendX=-10,legendY=-30,
-#                                             offset=20),
-#             )
-#             ,tooltip="percentage:Q", 
-#         ).properties(
-#             # title=alt.Title(text="% of area covered by crops",offset=20),
-#             # height=100,
-#         )
-
-#     pie = base.mark_arc(innerRadius=40, outerRadius=120)+\
-#           base.mark_text(fill='black', radius=90, size=12).encode(text='percentage:N')
-#     # pie = pie.properties(width=300, height=300)
-
-#     return pie# + text
-
-
-#     # df = pd.DataFrame({
-#     # "category": ["A", "B", "C"],
-#     # "value": [30, 45, 25]
-#     # })
-#     # df["label"] = df["value"].astype(str) + "%"
-
-#     # # Altair chart
-#     # base = alt.Chart(df_long).encode(
-#     #     theta=alt.Theta("percentage", stack=True),
-#     #     color=alt.Color("landuse_type:N",
-#     #                     legend=alt.Legend(title=None,
-#     #                                     orient="none",
-#     #                                     direction="horizontal",legendX=-10,legendY=-30),
-#     #     )
-#     # )
-
-#     # chart = base.mark_arc(innerRadius=40, outerRadius=100) + \
-#     #         base.mark_text(radius=120, color='black').encode(text="percentage:N")
-
-#     # return chart
 
 def plotly_pie_chart(dfca, name, year):
 
