@@ -781,7 +781,7 @@ def plotly_pie_chart(dfca, name, year):
         )
     )
     
-    fig.update_traces(hole=.3, textposition='inside', textinfo='percent+label')
+    fig.update_traces(hole=.3, textposition='inside', textinfo='percent+label', textfont_size=16)
     fig.update_layout(showlegend=False)
 
     title = f'Area covered by each landuse class for {name} - {year}'
