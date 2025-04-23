@@ -233,7 +233,7 @@ def make_folium_choropleth(geo, indicator, df, col_name):
                 border: 1px solid black;
                 border-radius: 3px;
                 box-shadow: 3px;
-                font-size: 12rem;
+                font-size: 12px;
                 font-weight: normal;
                 max-width: 20px; 
                 white-space: normal; 
