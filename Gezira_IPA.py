@@ -27,7 +27,7 @@ def reset_map():
 with st.sidebar:
 
     st.logo(logo_wide, size="large", link='https://www.un-ihe.org/', icon_image=logo_small)
-    st.title('Mwea Irrigation Performance Indicators')
+    st.title('Gezira Irrigation Performance Indicators')
 
     crop_lst = ['wheats', 'sorgums', 'cottons']
     selected_crop = st.selectbox('Select crop type', crop_lst)
@@ -65,7 +65,7 @@ with st.sidebar:
     st.markdown("---")
     with st.expander("ℹ️ About the Indicator Map"):
         st.markdown("""
-        This Indicator Map provides view of the Irrigation Performance Indicators (IPA) for Mwea Irrigation Scheme.
+        This Indicator Map provides view of the Irrigation Performance Indicators (IPA) for Gezira Irrigation Scheme.
         - IPAs are calculated using data from: [FAO WaPOR data](https://www.fao.org/in-action/remote-sensing-for-water-productivity/wapor-data/en).
         - :orange[**Indicator Map**]: Shows the irrigation schemes section or blocks values for the selected indicator and selected statistics.      
         - Year/Season, and indicator type and statistic type can be selected to view the indicator selected by year/season and by statistics type.
