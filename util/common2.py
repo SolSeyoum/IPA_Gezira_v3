@@ -236,7 +236,7 @@ def make_folium_choropleth(geo, indicator, df, col_name):
                 font-size: 12rem;
                 font-weight: normal;
             """,
-            max_width=750,
+            max_width=200px,
             html=True  # Enables HTML in the tooltip
         )
     
