@@ -235,11 +235,11 @@ def make_folium_choropleth(geo, indicator, df, col_name):
                 box-shadow: 3px;
                 font-size: 12px;
                 font-weight: normal;
-                max-width: 20px; 
+                max-width: 200px; 
                 white-space: normal; 
             """,
             # max_width=200,
-            # html=True  # Enables HTML in the tooltip
+            html=True  # Enables HTML in the tooltip
         )
     
     choropleth = folium.GeoJson(
