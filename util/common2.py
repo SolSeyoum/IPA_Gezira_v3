@@ -92,7 +92,7 @@ def set_page_container_style(
     ):
         # Page configuration
         st.set_page_config(
-            page_title="Mwea Irrigation Scheme Irrigation Performance Indicators by Sections Dashboard",
+            page_title="Gezira Irrigation Scheme Irrigation Performance Indicators by Sections Dashboard",
             page_icon="📈🌿",
             layout="wide",
             initial_sidebar_state="expanded")
@@ -215,11 +215,11 @@ def make_folium_choropleth(geo, indicator, df, col_name):
     if 'section' in df.columns:
         fields = ['division', col_name, indicator]
         aliases = ["Division:", "Section:", f"{ylable}:"]
-        geo["ch_name"] = "Mwea Blocks"	
+        geo["ch_name"] = "Gezira Sections"	
     else:
         fields = [col_name, indicator]
         aliases = ["Division:", f"{ylable}:"]
-        geo["ch_name"] = "Mwea Sections"
+        geo["ch_name"] = "Gezira Divisions"
     
     # Add Choropleth layer
     tooltip=folium.GeoJsonTooltip(
